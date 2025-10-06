@@ -62,13 +62,11 @@ public class MongoGradeDataBase implements GradeDataBase {
                         .course(grade.getString(COURSE))
                         .grade(grade.getInt(GRADE))
                         .build();
-            }
-            else {
+            } else {
                 throw new RuntimeException("Grade could not be found for course: " + course
-                                           + " and username: " + username);
+                        + " and username: " + username);
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -105,12 +103,10 @@ public class MongoGradeDataBase implements GradeDataBase {
                             .build();
                 }
                 return result;
-            }
-            else {
+            } else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -137,12 +133,10 @@ public class MongoGradeDataBase implements GradeDataBase {
 
             if (responseBody.getInt(STATUS_CODE) == SUCCESS_CODE) {
                 return null;
-            }
-            else {
+            } else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -178,12 +172,10 @@ public class MongoGradeDataBase implements GradeDataBase {
                         .name(team.getString(NAME))
                         .members(members)
                         .build();
-            }
-            else {
+            } else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -209,12 +201,10 @@ public class MongoGradeDataBase implements GradeDataBase {
 
             if (responseBody.getInt(STATUS_CODE) == SUCCESS_CODE) {
                 return null;
-            }
-            else {
+            } else {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -240,8 +230,7 @@ public class MongoGradeDataBase implements GradeDataBase {
             if (responseBody.getInt(STATUS_CODE) != SUCCESS_CODE) {
                 throw new RuntimeException(responseBody.getString(MESSAGE));
             }
-        }
-        catch (IOException | JSONException event) {
+        } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
     }
@@ -286,5 +275,5 @@ public class MongoGradeDataBase implements GradeDataBase {
         } catch (IOException | JSONException event) {
             throw new RuntimeException(event);
         }
-        }
     }
+}
